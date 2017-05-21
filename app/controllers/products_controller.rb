@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :find_product, only: [:edit, :update, :destroy]
+
   def index
     @products = Product.all
   end
@@ -16,7 +18,28 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to products_path, notice: "商品更新成功"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @product.destroy
+    redirect_to products_path, notice: "商品已刪除"
+  end
+
   private
+  def find_product
+    @product = Product.find_by(id: params[:id])
+    redirect_to products_path, notice: "無此商品" unless @product
+  end
+
   def product_params
     params.require(:product).permit(:title, :description, :price)
   end

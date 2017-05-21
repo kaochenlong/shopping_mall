@@ -1,8 +1,8 @@
 <h1>商品列表</h1>
 
-<%= link_to '新增商品', new_product_path %>
+<%= link_to '新增商品', new_product_path, class: "btn btn-default btn-primary" %>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <td>商品名稱</td>
@@ -13,11 +13,14 @@
   <tbody>
     <% @products.each do |product| %>
     <tr>
-      <td><%= product.title %></td>
+      <td>
+        <%= link_to '放到購物車', "#", class: "btn btn-xs btn-danger" %>
+        <%= product.title %>
+      </td>
       <td><%= product.price %></td>
       <td>
-        <%= link_to '編輯', edit_product_path(product) %>
-        <%= link_to '刪除', product, method: "delete", data: { confirm: "確定刪除?" } %>
+        <%= link_to '編輯', edit_product_path(product), class: "btn btn-xs btn-default" %>
+        <%= link_to '刪除', product, method: "delete", data: { confirm: "確定刪除?" }, class: "btn btn-xs btn-default" %>
       </td>
     </tr>
     <% end %>
