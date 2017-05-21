@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'bootstrap-sass'
+gem 'simple_form'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
