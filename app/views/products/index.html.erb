@@ -1,0 +1,25 @@
+<h1>商品列表</h1>
+
+<%= link_to '新增商品', new_product_path %>
+
+<table>
+  <thead>
+    <tr>
+      <td>商品名稱</td>
+      <td>售價</td>
+      <td>處理</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+    <tr>
+      <td><%= product.title %></td>
+      <td><%= product.price %></td>
+      <td>
+        <%= link_to '編輯', edit_product_path(product) %>
+        <%= link_to '刪除', product, method: "delete", data: { confirm: "確定刪除?" } %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

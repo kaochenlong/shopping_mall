@@ -1,0 +1,9 @@
+<h1>新增商品</h1>
+
+<%= form_for @product do |f| %>
+  名稱：<%= f.text_field :title %><br />
+  說明：<%= f.text_area :description %><br />
+  售價：<%= f.text_field :price %><br />
+  <%= f.submit %>
+<% end %>
+
