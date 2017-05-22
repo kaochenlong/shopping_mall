@@ -1,0 +1,30 @@
+<h1>購物車</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <td>商品名稱</td>
+      <td>數量</td>
+      <td>單價</td>
+      <td>小計</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_cart.items.each do |item| %>
+      <tr>
+        <td><%= item.product.title %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.product.price %></td>
+        <td><%= item.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfood>
+  <tr>
+    <td colspan="3">總計</td>
+    <td><%= current_cart.total_price %></td>
+  </tfood>
+</table>
+
+<%= link_to '繼續選購', products_path, class: "btn btn-default" %>
+<%= link_to '結帳', '#', class: "btn btn-default" %>
